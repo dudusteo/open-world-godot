@@ -1,0 +1,66 @@
+[gd_scene load_steps=14 format=3]
+
+[ext_resource type="PackedScene" uid="uid://b58n4irxbn3f4" path="res://resources/mesh/cherry-tree/Cherry Tree (Lowmance Competition) Option 2 Export Sketch fab.glb" id="1_jqu34"]
+[ext_resource type="Shader" path="res://resources/graphics/toon_shader.gdshader" id="2_nrfr3"]
+[ext_resource type="Material" path="res://resources/graphics/outline_base.tres" id="2_vyeh5"]
+
+[sub_resource type="Curve" id="Curve_7ev6r"]
+_data = [Vector2(0.170616, 0.790909), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_tovdi"]
+_data = [Vector2(0.374408, 0.545455), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_mx6qr"]
+_data = [Vector2(0.298578, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_jwqyx"]
+curve_x = SubResource("Curve_7ev6r")
+curve_y = SubResource("Curve_tovdi")
+curve_z = SubResource("Curve_mx6qr")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_abtci"]
+render_priority = 0
+next_pass = ExtResource("2_vyeh5")
+shader = ExtResource("2_nrfr3")
+shader_parameter/shade_threshold = null
+shader_parameter/shade_color = Color(0, 0, 0, 1)
+shader_parameter/shade_softness = null
+shader_parameter/base_texture = SubResource("CurveXYZTexture_jwqyx")
+
+[sub_resource type="Curve" id="Curve_ee5gy"]
+_data = [Vector2(0.0758294, 0.0636363), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_kt6fk"]
+_data = [Vector2(0.0473934, 0.0272727), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="Curve" id="Curve_jqfq6"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_wk235"]
+curve_x = SubResource("Curve_ee5gy")
+curve_y = SubResource("Curve_kt6fk")
+curve_z = SubResource("Curve_jqfq6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ycnag"]
+render_priority = 0
+next_pass = ExtResource("2_vyeh5")
+shader = ExtResource("2_nrfr3")
+shader_parameter/shade_threshold = null
+shader_parameter/shade_color = null
+shader_parameter/shade_softness = null
+shader_parameter/base_texture = SubResource("CurveXYZTexture_wk235")
+
+[node name="CherryTree" instance=ExtResource("1_jqu34")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.260984, 0)
+
+[node name="LEaf008" parent="." index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_abtci")
+
+[node name="Tree Base" parent="." index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_ycnag")

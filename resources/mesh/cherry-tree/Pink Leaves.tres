@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3]
+
+[ext_resource type="Material" uid="uid://5s7grcocp2if" path="res://resources/graphics/toon_base.tres" id="1_nq5qc"]
+
+[resource]
+resource_name = "Pink Leaves"
+render_priority = 1
+next_pass = ExtResource("1_nq5qc")
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.906332, 0.18774, 0.423125, 1)
+roughness = 0.5
