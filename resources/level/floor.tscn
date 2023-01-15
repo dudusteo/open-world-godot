@@ -1,12 +1,9 @@
-[gd_scene load_steps=32 format=3 uid="uid://dxv570lx0dek3"]
+[gd_scene load_steps=29 format=3 uid="uid://dxv570lx0dek3"]
 
 [ext_resource type="PackedScene" uid="uid://vulpvn3l76m8" path="res://resources/player/player_3d.tscn" id="1_t00fg"]
 [ext_resource type="Shader" path="res://resources/terrain/terrain.gdshader" id="3_2pktq"]
 [ext_resource type="Script" path="res://resources/graphics/gui/GUI.gd" id="3_5k0vt"]
-[ext_resource type="Texture2D" uid="uid://4ribfbvktcrt" path="res://resources/terrain/map/rolling_hills_albedo.png" id="3_8kib6"]
 [ext_resource type="Script" path="res://resources/terrain/terrain.gd" id="3_c1kt0"]
-[ext_resource type="Texture2D" uid="uid://c4ku7p2bk1r5r" path="res://resources/terrain/map/rolling_hills_height_map.png" id="5_gquym"]
-[ext_resource type="Texture2D" uid="uid://yqfdgim5cur5" path="res://resources/terrain/map/rolling_hills_normal_map.png" id="5_q32fx"]
 [ext_resource type="ArrayMesh" uid="uid://c4vt4ukodildd" path="res://resources/terrain/grass/straw.obj" id="7_rh1ov"]
 [ext_resource type="ArrayMesh" uid="uid://bvne6lw12utl8" path="res://resources/terrain/grass/straw_lod.obj" id="7_y4y54"]
 [ext_resource type="Shader" path="res://resources/terrain/grass/foliage_particle.gdshader" id="8_amyek"]
@@ -34,13 +31,10 @@ noise = SubResource("FastNoiseLite_xxyud")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tg3y8"]
 shader = ExtResource("8_amyek")
 shader_parameter/chunk_position = null
-shader_parameter/map_size = null
 shader_parameter/chunk_size = null
 shader_parameter/terrain_amplitude = null
 shader_parameter/instance_rows = null
-shader_parameter/map_heightmap = ExtResource("5_gquym")
-shader_parameter/map_normalmap = ExtResource("5_q32fx")
-shader_parameter/sample_terrain = ExtResource("3_8kib6")
+shader_parameter/sample_terrain = ExtResource("12_tn6bq")
 shader_parameter/position_noise = SubResource("NoiseTexture2D_di3ry")
 shader_parameter/height_noise = SubResource("NoiseTexture2D_5sn5w")
 
@@ -68,7 +62,6 @@ shader_parameter/shade_threshold = -0.41
 shader_parameter/shade_color = Color(0, 0, 0, 1)
 shader_parameter/shade_softness = 0.324
 shader_parameter/albedo = ExtResource("12_tn6bq")
-shader_parameter/normalmap = ExtResource("5_q32fx")
 
 [sub_resource type="Gradient" id="Gradient_hy5os"]
 
