@@ -10,6 +10,6 @@ var SHIFT_DIRECTION: Vector3 = Vector3.ZERO
 func _ready():
 	SHIFT_DIRECTION = Vector3(0.2, 0.2, 0)
 
-func _process(delta):
+func _process_physics(delta):
 	global_position += SPEED * SHIFT_DIRECTION * delta
 	SPEED = max(SPEED - FRICTION * delta, 0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3]
+[gd_scene load_steps=14 format=3 uid="uid://bhvwmovoyle0v"]
 
 [ext_resource type="PackedScene" uid="uid://b58n4irxbn3f4" path="res://resources/mesh/cherry-tree/Cherry Tree (Lowmance Competition) Option 2 Export Sketch fab.glb" id="1_jqu34"]
 [ext_resource type="Shader" path="res://resources/graphics/toon_shader.gdshader" id="2_nrfr3"]
