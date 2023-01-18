@@ -21,8 +21,13 @@ window/vsync/vsync_mode=0
 
 [editor]
 
+export/convert_text_resources_to_binary=true
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/vrm/plugin.cfg")
 
 [input]
 

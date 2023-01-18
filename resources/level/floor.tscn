@@ -131,4 +131,4 @@ _density = 0.07
 environment = SubResource("Environment_n2hrk")
 
 [node name="EnemyBase3D" parent="." instance=ExtResource("15_74aji")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 10, -16)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -16, 10, -16)

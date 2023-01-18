@@ -1,9 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://vulpvn3l76m8"]
+[gd_scene load_steps=21 format=3 uid="uid://vulpvn3l76m8"]
 
 [ext_resource type="PackedScene" uid="uid://buk0ha3xxbdkh" path="res://resources/entity/entity_base_3d.tscn" id="1_krksg"]
 [ext_resource type="Script" path="res://resources/player/player_3d.gd" id="2_8ue0e"]
 [ext_resource type="PackedScene" uid="uid://dy77qcetikp15" path="res://resources/player/player_blend.tscn" id="3_dcbf8"]
+[ext_resource type="PackedScene" uid="uid://bxtvmim45m5f3" path="res://resources/mesh/B/b.vrm" id="4_323so"]
 [ext_resource type="AnimationLibrary" uid="uid://cwu8os8shmddw" path="res://resources/animations/player_animation.res" id="4_bsjdp"]
+[ext_resource type="AnimationLibrary" uid="uid://bdvpp5f70sofc" path="res://resources/animations/animations.glb" id="6_12w00"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a5l0i"]
 radius = 0.4
@@ -16,22 +18,22 @@ radius = 0.4
 height = 1.6
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6vvl8"]
-animation = &"player_animation/great sword idle"
+animation = &"animations/Armature015|mixamocom|Layer0"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k1nbt"]
-animation = &"player_animation/great sword walk"
+animation = &"animations/Armature002|mixamocom|Layer0"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ln4gr"]
-animation = &"player_animation/great sword run (2)"
+animation = &"animations/Armature005|mixamocom|Layer0"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y7vpi"]
-animation = &"player_animation/T-Pose"
+animation = &"animations/Armature019|mixamocom|Layer0"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_whgbg"]
-animation = &"player_animation/great sword slash"
+animation = &"animations/Armature023|mixamocom|Layer0"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tkxwi"]
-animation = &"player_animation/great sword jump"
+animation = &"animations/Armature011|mixamocom|Layer0"
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_wqqf1"]
 
@@ -51,11 +53,11 @@ input_3/name = "falling"
 input_3/auto_advance = false
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_i3ixs"]
-graph_offset = Vector2(-719.65, 72.7952)
+graph_offset = Vector2(-1354.3, 183.187)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_tkxwi")
-nodes/Animation/position = Vector2(100, 420)
+nodes/Animation/position = Vector2(-80, 400)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_6vvl8")
-"nodes/Animation 2/position" = Vector2(-580, 160)
+"nodes/Animation 2/position" = Vector2(-740, 140)
 "nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_k1nbt")
 "nodes/Animation 3/position" = Vector2(-700, 280)
 "nodes/Animation 4/node" = SubResource("AnimationNodeAnimation_ln4gr")
@@ -63,7 +65,7 @@ nodes/Animation/position = Vector2(100, 420)
 "nodes/Animation 5/node" = SubResource("AnimationNodeAnimation_y7vpi")
 "nodes/Animation 5/position" = Vector2(-560, 520)
 "nodes/Animation 6/node" = SubResource("AnimationNodeAnimation_whgbg")
-"nodes/Animation 6/position" = Vector2(440, 360)
+"nodes/Animation 6/position" = Vector2(400, 420)
 nodes/attack/node = SubResource("AnimationNodeOneShot_wqqf1")
 nodes/attack/position = Vector2(660, 200)
 nodes/jump/node = SubResource("AnimationNodeOneShot_l7eex")
@@ -93,12 +95,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot3D" index="0"]
 shape = SubResource("SphereShape3D_fv4ir")
-spring_length = 5.0
+spring_length = 4.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot3D/SpringArm3D" index="0"]
 fov = 45.0
 
 [node name="player_blend" parent="CharacterPivot3D" index="0" instance=ExtResource("3_dcbf8")]
+visible = false
+
+[node name="b" parent="CharacterPivot3D" index="1" instance=ExtResource("4_323so")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Hurtbox3D" parent="." index="3"]
 collision_layer = 2
@@ -107,13 +113,27 @@ collision_layer = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 shape = SubResource("CapsuleShape3D_66ktq")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+[node name="AnimationPlayerOld" type="AnimationPlayer" parent="." index="4"]
 root_node = NodePath("../CharacterPivot3D/player_blend")
 libraries = {
 "player_animation": ExtResource("4_bsjdp")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="." index="5"]
+[node name="AnimationTreeOld" type="AnimationTree" parent="." index="5"]
+tree_root = SubResource("AnimationNodeBlendTree_i3ixs")
+anim_player = NodePath("../AnimationPlayerOld")
+parameters/attack/active = false
+parameters/jump/active = false
+parameters/land/active = false
+parameters/state/current = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
+root_node = NodePath("../CharacterPivot3D/b")
+libraries = {
+"animations": ExtResource("6_12w00")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="7"]
 tree_root = SubResource("AnimationNodeBlendTree_i3ixs")
 anim_player = NodePath("../AnimationPlayer")
 active = true
