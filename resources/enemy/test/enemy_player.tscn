@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://o1oa6s6pl1ok"]
 
 [ext_resource type="PackedScene" uid="uid://51dsn1d1vjmw" path="res://resources/enemy/enemy_base.tscn" id="1_gat17"]
-[ext_resource type="PackedScene" uid="uid://cprd6rinursj7" path="res://resources/mesh/A/a.vrm" id="2_jk0p1"]
+[ext_resource type="PackedScene" uid="uid://dex8ivw52xyup" path="res://resources/mesh/A/a.vrm" id="2_jk0p1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_glaei"]
 

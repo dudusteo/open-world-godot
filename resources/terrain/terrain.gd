@@ -168,7 +168,7 @@ func get_closest_chunk_center(entity_position: Vector3):
 	return closest_chunk_center
 	
 func _process(_delta):
-	#create_chunks(chunk_render_distance * 2)
+	create_chunks(chunk_render_distance * 2)
 	for chunk in get_children(): 
 		for child in chunk.get_children():
 			if(child is GPUParticles3D):

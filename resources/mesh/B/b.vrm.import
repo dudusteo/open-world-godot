@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bxtvmim45m5f3"
+uid="uid://7gs33u57iljk"
 path="res://.godot/imported/b.vrm-411da7075838260260e48498c7560ee3.scn"
 
 [deps]
@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/b.vrm-411da7075838260260e48498c7560ee3.scn"]
 
 [params]
 
-nodes/root_type="VRMTopLevel"
+nodes/root_type="Node3D"
 nodes/root_name="Scene Root"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
