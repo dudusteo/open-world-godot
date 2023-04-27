@@ -7,5 +7,9 @@
 - Fully animated grass using ghshader (glsl vertex + fragment shader equivalent)
 
 
-![alt text](https://scontent-frt3-2.xx.fbcdn.net/v/t39.30808-6/340071701_601240342040495_7005397737184261104_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5cd70e&_nc_ohc=_2ConxoH6gEAX_qxG54&_nc_ht=scontent-frt3-2.xx&oh=00_AfCU0ouN39vjXcvHihUHRYBcqmL8eNm8Nu54F9jya1GNRA&oe=6446BB82)
-![alt text](https://scontent-fra3-1.xx.fbcdn.net/v/t39.30808-6/339644586_1174411866555393_1799959077302717918_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5cd70e&_nc_ohc=B4a-Q_zjjjEAX8ZGZQn&_nc_ht=scontent-fra3-1.xx&oh=00_AfCDsOV9nIBk3ao3in1gT-X-v1mZH-ISeGd37EnXtm2EGA&oe=64455C00)
+
+![339644586_1174411866555393_1799959077302717918_n](https://user-images.githubusercontent.com/30495650/234970904-92585601-274b-4f8f-885f-ba2318063848.jpg)
+
+Old version (without PCG)
+
+![image](https://user-images.githubusercontent.com/30495650/234971018-0b4a1462-6f88-414b-a396-1131deba0fba.png)
