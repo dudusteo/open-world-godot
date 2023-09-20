@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://o1oa6s6pl1ok"]
+[gd_scene load_steps=5 format=3 uid="uid://o1oa6s6pl1ok"]
 
 [ext_resource type="PackedScene" uid="uid://51dsn1d1vjmw" path="res://resources/enemy/enemy_base.tscn" id="1_gat17"]
-[ext_resource type="PackedScene" uid="uid://dex8ivw52xyup" path="res://resources/mesh/A/a.vrm" id="2_jk0p1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_glaei"]
 
@@ -14,8 +13,6 @@
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_glaei")
-
-[node name="a" parent="CharacterPivot3D" index="0" instance=ExtResource("2_jk0p1")]
 
 [node name="CollisionShape3D" parent="Hurtbox3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
