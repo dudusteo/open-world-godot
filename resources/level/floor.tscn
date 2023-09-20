@@ -1,0 +1,134 @@
+[gd_scene load_steps=29 format=3 uid="uid://dxv570lx0dek3"]
+
+[ext_resource type="PackedScene" uid="uid://vulpvn3l76m8" path="res://resources/player/player_3d.tscn" id="1_t00fg"]
+[ext_resource type="Shader" path="res://resources/terrain/terrain.gdshader" id="3_2pktq"]
+[ext_resource type="Script" path="res://resources/graphics/gui/GUI.gd" id="3_5k0vt"]
+[ext_resource type="Script" path="res://resources/terrain/terrain.gd" id="3_c1kt0"]
+[ext_resource type="ArrayMesh" uid="uid://c4vt4ukodildd" path="res://resources/terrain/grass/straw.obj" id="7_rh1ov"]
+[ext_resource type="ArrayMesh" uid="uid://bvne6lw12utl8" path="res://resources/terrain/grass/straw_lod.obj" id="7_y4y54"]
+[ext_resource type="Shader" path="res://resources/terrain/grass/foliage_particle.gdshader" id="8_amyek"]
+[ext_resource type="Shader" path="res://resources/terrain/grass/foliage_spatial.gdshader" id="9_5fndb"]
+[ext_resource type="PackedScene" uid="uid://bhvwmovoyle0v" path="res://resources/terrain/tree/variants/cherry_tree.tscn" id="12_ot6r7"]
+[ext_resource type="Texture2D" uid="uid://yqfl2pnvb8um" path="res://resources/terrain/map/albedo_test.png" id="12_tn6bq"]
+[ext_resource type="PackedScene" uid="uid://o1oa6s6pl1ok" path="res://resources/enemy/test/enemy_player.tscn" id="15_74aji"]
+
+[sub_resource type="Gradient" id="Gradient_apmna"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_i02g6"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5sn5w"]
+color_ramp = SubResource("Gradient_apmna")
+noise = SubResource("FastNoiseLite_i02g6")
+
+[sub_resource type="Gradient" id="Gradient_hem0i"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xxyud"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_di3ry"]
+color_ramp = SubResource("Gradient_hem0i")
+noise = SubResource("FastNoiseLite_xxyud")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tg3y8"]
+shader = ExtResource("8_amyek")
+shader_parameter/chunk_position = null
+shader_parameter/chunk_size = null
+shader_parameter/terrain_amplitude = null
+shader_parameter/instance_rows = null
+shader_parameter/sample_terrain = ExtResource("12_tn6bq")
+shader_parameter/position_noise = SubResource("NoiseTexture2D_di3ry")
+shader_parameter/height_noise = SubResource("NoiseTexture2D_5sn5w")
+
+[sub_resource type="Curve" id="Curve_vjrdu"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.25, 0.25), 0.0, 0.0, 0, 0, Vector2(0.5, 0.5), 0.0, 0.0, 0, 0, Vector2(0.75, 0.75), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_tltkv"]
+curve = SubResource("Curve_vjrdu")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1jmgw"]
+render_priority = 0
+shader = ExtResource("9_5fndb")
+shader_parameter/character_position = null
+shader_parameter/character_radius = 1.0
+shader_parameter/character_push_strength = 1.0
+shader_parameter/tip_albedo = Color(0, 0.364706, 0.364706, 1)
+shader_parameter/character_distance_falloff_curve = SubResource("CurveTexture_tltkv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ikjva"]
+render_priority = 0
+shader = ExtResource("3_2pktq")
+shader_parameter/terrain_amplitude = 1.0
+shader_parameter/shade_threshold = -0.41
+shader_parameter/shade_color = Color(0, 0, 0, 1)
+shader_parameter/shade_softness = 0.324
+shader_parameter/albedo = ExtResource("12_tn6bq")
+
+[sub_resource type="Gradient" id="Gradient_hy5os"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_w4287"]
+frequency = 0.05
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4b1nu"]
+generate_mipmaps = false
+seamless = true
+seamless_blend_skirt = 0.45
+color_ramp = SubResource("Gradient_hy5os")
+noise = SubResource("FastNoiseLite_w4287")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2tpuo"]
+sky_top_color = Color(0.14902, 0.305882, 0.843137, 1)
+sky_curve = 0.0530331
+sky_cover = SubResource("NoiseTexture2D_4b1nu")
+
+[sub_resource type="Sky" id="Sky_a8n57"]
+sky_material = SubResource("ProceduralSkyMaterial_2tpuo")
+
+[sub_resource type="Environment" id="Environment_n2hrk"]
+background_mode = 2
+sky = SubResource("Sky_a8n57")
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.015
+volumetric_fog_length = 200.0
+volumetric_fog_ambient_inject = 0.15
+volumetric_fog_sky_affect = 0.1
+
+[node name="Floor" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_t00fg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 0)
+
+[node name="GUI" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 1, 1, 0)
+script = ExtResource("3_5k0vt")
+
+[node name="FPS_COUNTER" type="Label" parent="GUI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0 FPS"
+
+[node name="ChunkSystem" type="Node3D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("3_c1kt0")
+chunk_size = 32
+chunk_render_distance = 1
+terrain_amplitude = 3.0
+player = NodePath("../Player")
+grass_mesh = ExtResource("7_rh1ov")
+grass_mesh_LOD = ExtResource("7_y4y54")
+particle_material = SubResource("ShaderMaterial_tg3y8")
+spatial_material = SubResource("ShaderMaterial_1jmgw")
+density = 8.0
+_spatial_material = SubResource("ShaderMaterial_ikjva")
+tree_scene = ExtResource("12_ot6r7")
+_density = 0.07
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_n2hrk")
+
+[node name="EnemyBase3D" parent="." instance=ExtResource("15_74aji")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -16, 10, -16)

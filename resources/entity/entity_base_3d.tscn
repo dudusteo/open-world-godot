@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://buk0ha3xxbdkh"]
+
+[ext_resource type="Script" path="res://resources/entity/entity_base_3d.gd" id="1_2p1ib"]
+[ext_resource type="PackedScene" uid="uid://5rxpvgk1fsh2" path="res://resources/overlap/hurtbox_3d.tscn" id="2_sedai"]
+
+[node name="EntityBase3D" type="CharacterBody3D"]
+script = ExtResource("1_2p1ib")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="CharacterPivot3D" type="Marker3D" parent="."]
+
+[node name="Hurtbox3D" parent="." instance=ExtResource("2_sedai")]
+
+[connection signal="area_entered" from="Hurtbox3D" to="." method="_on_hurtbox_3d_area_entered"]
+
+[editable path="Hurtbox3D"]

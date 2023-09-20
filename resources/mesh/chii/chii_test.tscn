@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://odknwusu21rp"]
+
+[ext_resource type="PackedScene" uid="uid://cqgpj3bqa0pc2" path="res://resources/mesh/chii/chii_test.glb" id="1_bc34a"]
+[ext_resource type="PackedScene" uid="uid://c2cm5qqdc2nkx" path="res://resources/weapon/katana_3d.tscn" id="2_kjjxg"]
+
+[node name="chii_test" instance=ExtResource("1_bc34a")]
+
+[node name="WeaponAttachment" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0.22963, 0.967668, -0.00694407)
+bone_name = "RightHandMiddle1"
+bone_idx = 43
+
+[node name="Katana3D" parent="Armature/Skeleton3D/WeaponAttachment" index="0" instance=ExtResource("2_kjjxg")]

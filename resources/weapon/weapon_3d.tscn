@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnue32l73bcf7"]
+
+[ext_resource type="PackedScene" uid="uid://rs2hql3nskyd" path="res://resources/overlap/hitbox_3d.tscn" id="1_h0p6y"]
+
+[node name="Weapon3D" type="Node3D"]
+
+[node name="WeaponPivot3D" type="Marker3D" parent="."]
+
+[node name="Hitbox3D" parent="." instance=ExtResource("1_h0p6y")]
+
+[editable path="Hitbox3D"]
