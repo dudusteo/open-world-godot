@@ -1,8 +1,0 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://dccs6efj1w7n0"]
-
-[resource]
-resource_name = "Tree Bark"
-cull_mode = 2
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.653295, 0.524211, 0.482159, 1)
-roughness = 0.5
