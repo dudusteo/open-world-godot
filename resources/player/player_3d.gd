@@ -17,7 +17,7 @@ var pivot: Basis = Basis()
 enum State {IDLE, WALK, RUN, FALLING}
 
 func _ready():
-	get_weapon()
+#	get_weapon()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		
 func _process(_delta):

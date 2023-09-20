@@ -55,9 +55,9 @@ curve_z = SubResource("Curve_mx6qr")
 render_priority = 0
 next_pass = ExtResource("2_vyeh5")
 shader = ExtResource("2_nrfr3")
-shader_parameter/shade_threshold = null
+shader_parameter/shade_threshold = 0.0
 shader_parameter/shade_color = Color(0, 0, 0, 1)
-shader_parameter/shade_softness = null
+shader_parameter/shade_softness = 0.01
 shader_parameter/base_texture = SubResource("CurveXYZTexture_jwqyx")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_u3x3y"]
@@ -112,9 +112,9 @@ curve_z = SubResource("Curve_jqfq6")
 render_priority = 0
 next_pass = ExtResource("2_vyeh5")
 shader = ExtResource("2_nrfr3")
-shader_parameter/shade_threshold = null
-shader_parameter/shade_color = null
-shader_parameter/shade_softness = null
+shader_parameter/shade_threshold = 0.0
+shader_parameter/shade_color = Color(0, 0, 0, 1)
+shader_parameter/shade_softness = 0.01
 shader_parameter/base_texture = SubResource("CurveXYZTexture_wk235")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7hcdb"]

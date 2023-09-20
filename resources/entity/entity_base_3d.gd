@@ -20,10 +20,10 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var canDoubleJump: bool = true
 var isAttacking: bool = false
 
-func get_weapon():
-	var weapon_att: BoneAttachment3D = character_pivot.get_child(0).get_node("Armature/Skeleton3D/WeaponAttachment")
-	if(weapon_att and weapon_att.get_child_count() == 1):
-		weapon = weapon_att.get_child(0)
+#func get_weapon():
+#	var weapon_att: BoneAttachment3D = character_pivot.get_child(0).get_node("Armature/Skeleton3D/WeaponAttachment")
+#	if(weapon_att and weapon_att.get_child_count() == 1):
+#		weapon = weapon_att.get_child(0)
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -39,8 +39,8 @@ func die():
 	await get_tree().create_timer(0).timeout
 	queue_free()
 	
-func deal_damage():
-	weapon.get_node("Hitbox3D").trigger_hitbox()
+#func deal_damage():
+#	weapon.get_node("Hitbox3D").trigger_hitbox()
 
 func spawn_effect(EFFECT: PackedScene, effect_position: Vector3 = global_position):
 	if EFFECT:
