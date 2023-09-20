@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c2cm5qqdc2nkx"]
 
 [ext_resource type="PackedScene" uid="uid://bnue32l73bcf7" path="res://resources/weapon/weapon_3d.tscn" id="1_0yhba"]
-[ext_resource type="PackedScene" uid="uid://cpstb72vvycj0" path="res://resources/mesh/katana/katana.tscn" id="2_vvma2"]
+[ext_resource type="PackedScene" uid="uid://dn5m0q76sxu54" path="res://resources/mesh/katana/katana.glb" id="2_vvma2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lixey"]
 size = Vector3(0.1, 1.2, 0.05)

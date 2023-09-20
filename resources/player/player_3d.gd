@@ -34,51 +34,33 @@ func _process(_delta):
 	#camera_3d.position.z = lerp(camera_3d.position.z, zoom, 0.1)
 
 func _physics_process(delta):	
-	isAttacking = anim_tree.get("parameters/attack/active")
-	
-	if Input.is_action_just_pressed("attack") and is_on_floor():
-		anim_tree.set("parameters/attack/active", true)
-		
 	var input_dir = Input.get_vector("left", "right", "up", "down")
-	
+
 	if not isAttacking:
 		if(Input.is_action_pressed("crouch")):
 			input_dir *= 0.5
 		var movement = look_at * Vector3(input_dir.x, 0, input_dir.y)
-		
+
 		velocity.x = movement.x * SPEED
 		velocity.z = movement.z * SPEED
-		
+
 		if movement:
 			var angle = atan2(-movement.x, -movement.z)
 			character_pivot.transform.basis = Basis(Vector3i(0,1,0), angle)
-			if(is_on_floor()):
-				if(abs(input_dir.x) > 0.7 or abs(input_dir.y) > 0.7):
-					anim_tree.set("parameters/state/current", State.RUN)
-				else:
-					anim_tree.set("parameters/state/current", State.WALK)
-				
-		elif is_on_floor():
-			anim_tree.set("parameters/state/current", State.IDLE)	
-			
+
 		if not is_on_floor():
 			velocity.y -= gravity * delta
-		elif anim_tree.get("parameters/state/current") == State.FALLING:
-			canDoubleJump = true
-			anim_tree.set("parameters/land/active", true)
 		else:
 			canDoubleJump = true
-			
+
 		if Input.is_action_just_pressed("jump") and (is_on_floor() or canDoubleJump):
 			velocity.y = JUMP_VELOCITY 
-			anim_tree.set("parameters/jump/active", true)
-			anim_tree.set("parameters/state/current", State.FALLING)
 			if not is_on_floor():
 				canDoubleJump = false
-		
+
 	else:
 		velocity = Vector3(0.0, 0.0, 0.0)
-		
+#
 	move()	
 	
 func _input(event):
