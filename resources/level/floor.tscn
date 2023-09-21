@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dxv570lx0dek3"]
+[gd_scene load_steps=30 format=3 uid="uid://dxv570lx0dek3"]
 
 [ext_resource type="PackedScene" uid="uid://vulpvn3l76m8" path="res://resources/player/player_3d.tscn" id="1_t00fg"]
 [ext_resource type="Shader" path="res://resources/terrain/terrain.gdshader" id="3_2pktq"]
@@ -10,6 +10,7 @@
 [ext_resource type="Shader" path="res://resources/terrain/grass/foliage_spatial.gdshader" id="9_5fndb"]
 [ext_resource type="PackedScene" uid="uid://bhvwmovoyle0v" path="res://resources/terrain/tree/variants/cherry_tree.tscn" id="12_ot6r7"]
 [ext_resource type="Texture2D" uid="uid://yqfl2pnvb8um" path="res://resources/terrain/map/albedo_test.png" id="12_tn6bq"]
+[ext_resource type="PackedScene" uid="uid://4nxj4vyql2y7" path="res://resources/terrain/New Terrain/Chunk.tscn" id="12_yieyt"]
 [ext_resource type="PackedScene" uid="uid://o1oa6s6pl1ok" path="res://resources/enemy/test/enemy_player.tscn" id="15_74aji"]
 
 [sub_resource type="Gradient" id="Gradient_apmna"]
@@ -132,3 +133,5 @@ environment = SubResource("Environment_n2hrk")
 
 [node name="EnemyBase3D" parent="." instance=ExtResource("15_74aji")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -16, 10, -16)
+
+[node name="Chunk" parent="." instance=ExtResource("12_yieyt")]
